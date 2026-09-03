@@ -1,0 +1,16 @@
+{
+  "name": "pdf-rag",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Upload a PDF, ask questions about it, get answers with page citations.",
+  "scripts": {
+    "setup": "pnpm install && pnpm --dir server install && pnpm --dir client install",
+    "infra": "docker compose up -d --wait",
+    "dev": "pnpm run infra && concurrently --names \"server,worker,client\" --prefix-colors \"blue,magenta,green\" --kill-others-on-fail \"pnpm --dir server run dev\" \"pnpm --dir server run dev:worker\" \"pnpm --dir client run dev\"",
+    "stop": "docker compose down",
+    "reset": "docker compose down -v"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1"
+  }
+}
