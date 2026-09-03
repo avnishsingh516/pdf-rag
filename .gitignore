@@ -34,5 +34,4 @@ Thumbs.db
 *.key
 
 # misc
-.README.md
-.INTERVIEW.md
+INTERVIEW.md
